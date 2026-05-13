@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro">
+    <img id="intro-logo" src="logo.png" alt="El Fundillo" />
+    <button id="enter-btn" onclick="enterSite()">ENTER</button>
+  </div>
+
+  <!-- MAIN CONTENT (hidden until enter) -->
+  <div id="site" class="site-hidden">
   <div class="bg-grid"></div>
   <div class="noise"></div>
 
@@ -94,5 +103,29 @@
   <footer>
     <span class="mono">EL FUNDILLO</span> &mdash; Todos los derechos reservados &middot; <span class="mono">2026</span>
   </footer>
+  </div><!-- /site -->
+
+  <script>
+    function enterSite() {
+      const intro = document.getElementById('intro');
+      const logo  = document.getElementById('intro-logo');
+      const site  = document.getElementById('site');
+
+      // Phase 1: logo zooms into the user
+      logo.classList.add('logo-zoom');
+
+      // Phase 2: after zoom, fade out intro and reveal site
+      setTimeout(() => {
+        intro.classList.add('intro-fadeout');
+        site.classList.remove('site-hidden');
+        site.classList.add('site-fadein');
+      }, 700);
+
+      // Phase 3: remove intro from DOM
+      setTimeout(() => {
+        intro.remove();
+      }, 1300);
+    }
+  </script>
 </body>
 </html>
