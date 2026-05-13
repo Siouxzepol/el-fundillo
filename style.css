@@ -1,9 +1,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --accent:       #00e5b0;
-  --accent-dim:   rgba(0,229,176,0.15);
-  --accent-glow:  rgba(0,229,176,0.06);
+  --accent:       #ffffff;
+  --accent-dim:   rgba(255,255,255,0.1);
+  --accent-glow:  rgba(255,255,255,0.04);
   --discord:      #5865f2;
   --subs:         #f5c400;
   --eventos:      #a78bfa;
@@ -42,9 +42,8 @@ html, body {
 .bg-overlay {
   position: fixed; inset: 0;
   background:
-    radial-gradient(ellipse at 70% 30%, rgba(0,229,176,0.04) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(0,100,80,0.06) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(3,8,5,0.7) 0%, rgba(3,8,5,0.5) 50%, rgba(3,8,5,0.85) 100%);
+    radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.02) 0%, transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
   z-index: 1;
 }
 
@@ -227,7 +226,7 @@ html, body {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.activity__dot--green { background: #3ba55c; box-shadow: 0 0 6px #3ba55c; }
+.activity__dot--green { background: rgba(255,255,255,0.7); }
 .activity__dot--blue  { background: var(--discord); }
 .activity__dot--muted { background: var(--text-dim); }
 
@@ -248,7 +247,7 @@ html, body {
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
+  box-shadow: 0 0 8px rgba(255,255,255,0.4);
   animation: pulseDot 2s ease-in-out infinite;
 }
 
@@ -400,8 +399,8 @@ a.card:hover {
 }
 
 /* Card variants */
-.card--colmena:hover { border-color: rgba(0,229,176,0.25); }
-.card--colmena:hover .card__glow { opacity: 1; box-shadow: inset 0 0 50px rgba(0,229,176,0.06); }
+.card--colmena:hover { border-color: rgba(255,255,255,0.18); }
+.card--colmena:hover .card__glow { opacity: 1; box-shadow: inset 0 0 50px rgba(255,255,255,0.04); }
 .card--colmena .card__link { color: var(--accent); }
 
 .card--discord:hover { border-color: rgba(88,101,242,0.3); }
@@ -452,7 +451,7 @@ a.card:hover {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.status--online { color: #3ba55c; }
+.status--online { color: rgba(255,255,255,0.7); }
 .status--soon   { color: var(--text-dim); }
 
 .discord-icon {
