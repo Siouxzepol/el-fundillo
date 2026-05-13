@@ -37,6 +37,7 @@ html, body {
   background: url('bg.png') center / cover no-repeat;
   opacity: 0.55;
   z-index: 0;
+  pointer-events: none;
 }
 
 .bg-overlay {
@@ -45,6 +46,7 @@ html, body {
     radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.02) 0%, transparent 55%),
     linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 
