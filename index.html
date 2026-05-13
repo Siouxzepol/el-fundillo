@@ -56,7 +56,19 @@
 
       <!-- LEFT PANEL — YouTube -->
       <aside class="yt-panel">
-        <p class="sidebar__heading">ÚLTIMO VÍDEO</p>
+
+        <!-- TWITCH LIVE STATUS -->
+        <p class="sidebar__heading">DIRECTO</p>
+        <a id="twitch-card" href="https://twitch.tv/norrisplay" target="_blank" rel="noopener" class="twitch-card twitch-card--checking">
+          <div class="twitch-card__indicator" id="twitch-dot"></div>
+          <div class="twitch-card__info">
+            <div class="twitch-card__status" id="twitch-status">Comprobando...</div>
+            <div class="twitch-card__channel">NorrisPlay</div>
+          </div>
+          <div class="twitch-card__uptime" id="twitch-uptime"></div>
+        </a>
+
+        <p class="sidebar__heading" style="margin-top:10px">ÚLTIMO VÍDEO</p>
         <div class="yt-embed-wrap">
           <iframe src="https://www.youtube.com/embed/videoseries?list=UUweN1tq6GAjklEiuL_lEuzA" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
         </div>
@@ -212,6 +224,36 @@
   </div><!-- /site -->
 
   <script>
+
+    // ── Twitch live detection ──
+    async function checkTwitchLive() {
+      const card     = document.getElementById('twitch-card');
+      const dot      = document.getElementById('twitch-dot');
+      const status   = document.getElementById('twitch-status');
+      const uptime   = document.getElementById('twitch-uptime');
+      try {
+        const res  = await fetch('https://decapi.me/twitch/uptime/norrisplay');
+        const text = (await res.text()).trim();
+        const live = !text.toLowerCase().includes('offline');
+        card.classList.remove('twitch-card--checking', 'twitch-card--live', 'twitch-card--offline');
+        if (live) {
+          card.classList.add('twitch-card--live');
+          status.textContent  = '● EN DIRECTO';
+          uptime.textContent  = text;
+        } else {
+          card.classList.add('twitch-card--offline');
+          status.textContent  = '○ OFFLINE';
+          uptime.textContent  = '';
+        }
+      } catch(e) {
+        card.classList.remove('twitch-card--checking');
+        card.classList.add('twitch-card--offline');
+        status.textContent = '○ SIN DATOS';
+        uptime.textContent = '';
+      }
+    }
+    checkTwitchLive();
+    setInterval(checkTwitchLive, 120000); // cada 2 minutos
 
     // ── YouTube latest video title ──
     async function loadVideoTitle() {

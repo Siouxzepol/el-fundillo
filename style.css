@@ -137,6 +137,64 @@ html, body {
   overflow-y: auto;
 }
 
+/* ══ TWITCH CARD ══ */
+.twitch-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: border-color var(--t), background var(--t);
+}
+.twitch-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.3); }
+
+.twitch-card__indicator {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.2);
+}
+.twitch-card--live .twitch-card__indicator {
+  background: #e91916;
+  box-shadow: 0 0 8px rgba(233,25,22,0.8);
+  animation: pulseLive 1.4s ease-in-out infinite;
+}
+.twitch-card--offline .twitch-card__indicator { background: rgba(255,255,255,0.18); }
+@keyframes pulseLive {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: 0.5; transform: scale(0.8); }
+}
+
+.twitch-card__info { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+
+.twitch-card__status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.twitch-card--live    .twitch-card__status { color: #ff6b6b; }
+.twitch-card--offline .twitch-card__status { color: rgba(255,255,255,0.4); }
+.twitch-card--checking .twitch-card__status { color: rgba(255,255,255,0.4); }
+
+.twitch-card__channel {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+.twitch-card__uptime {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
 /* ══ GAMES PANEL ══ */
 .games-panel {
   background: rgba(0,0,0,0.25);
