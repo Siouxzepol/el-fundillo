@@ -223,7 +223,8 @@
     async function loadLatestVideo() {
       const CHANNEL_ID = 'UCweN1tq6GAjklEiuL_lEuzA';
       try {
-        const rss = `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+        const feedUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
+        const rss = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
         const res = await fetch(rss);
         const data = await res.json();
         if (data.items && data.items.length > 0) {
