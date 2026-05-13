@@ -6,152 +6,280 @@
   <title>El Fundillo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- INTRO SCREEN -->
+  <!-- ══ INTRO ══ -->
   <div id="intro">
     <img id="intro-logo" src="logo.png" alt="El Fundillo" />
     <button id="enter-btn" onclick="enterSite()">[ ENTER PARA ENTRAR ]</button>
   </div>
 
-  <!-- MAIN CONTENT (hidden until enter) -->
+  <!-- ══ SITE ══ -->
   <div id="site" class="site-hidden">
-  <div class="bg-grid"></div>
-  <div class="noise"></div>
 
-  <header>
-    <div class="logo-wrap">
-      <span class="logo-text">EL FUNDILLO</span>
-    </div>
-    <p class="tagline">Tu portal de juego</p>
-  </header>
+    <!-- Background layers -->
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-fog"></div>
 
-  <main>
-
-    <!-- ── ACCESO RÁPIDO ── -->
-    <section class="section-label">ACCESO RÁPIDO</section>
-    <div class="grid mb-section">
-
-      <!-- La Colmena -->
-      <a href="https://la-colmena.netlify.app" target="_blank" rel="noopener" class="card card--colmena">
-        <div class="card__glow"></div>
-        <div class="card__top">
-          <span class="card__badge">Star Citizen</span>
-          <span class="card__status online">● EN LÍNEA</span>
-        </div>
-        <h2 class="card__title">La Colmena</h2>
-        <p class="card__desc">Dashboard del clan — miembros, misiones, economía y flota.</p>
-        <div class="card__footer">
-          <span class="card__link">Acceder →</span>
-        </div>
-      </a>
-
-      <!-- Discord -->
-      <a href="https://discord.gg/cqVYQqGV" target="_blank" rel="noopener" class="card card--discord">
-        <div class="card__glow"></div>
-        <div class="card__top">
-          <span class="card__badge">Comunidad</span>
-          <span class="card__status online">● ACTIVO</span>
-        </div>
-        <div class="card__icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.11 18.1.128 18.11a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-          </svg>
-        </div>
-        <h2 class="card__title">Discord</h2>
-        <p class="card__desc">Servidor oficial — habla con el resto de la comunidad.</p>
-        <div class="card__footer">
-          <span class="card__link">Unirse →</span>
-        </div>
-      </a>
-
-      <!-- Próximamente juego 1 -->
-      <div class="card card--soon">
-        <div class="card__top">
-          <span class="card__badge">???</span>
-          <span class="card__status soon">◌ PRÓXIMAMENTE</span>
-        </div>
-        <h2 class="card__title muted">Nuevo juego</h2>
-        <p class="card__desc muted">Más contenido en camino. Pronto disponible.</p>
-        <div class="card__footer">
-          <span class="card__link muted">En desarrollo</span>
-        </div>
+    <!-- ── HEADER ── -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <span class="sys-label">EL FUNDILLO SYSTEM</span>
+        <span class="sys-sep">|</span>
+        <span class="sys-node">EU WEST NODE</span>
+        <span class="sys-sep">|</span>
+        <span class="sys-ver">v1.0.0</span>
       </div>
-
-      <!-- Próximamente juego 2 -->
-      <div class="card card--soon">
-        <div class="card__top">
-          <span class="card__badge">???</span>
-          <span class="card__status soon">◌ PRÓXIMAMENTE</span>
-        </div>
-        <h2 class="card__title muted">Nuevo juego</h2>
-        <p class="card__desc muted">Más contenido en camino. Pronto disponible.</p>
-        <div class="card__footer">
-          <span class="card__link muted">En desarrollo</span>
-        </div>
+      <div class="topbar__center">
+        <h1 class="site-title">EL FUNDILLO</h1>
+        <p class="site-sub">Tu Portal de Juego</p>
       </div>
-
-    </div>
-
-    <!-- ── COMUNIDAD ── -->
-    <section class="section-label">COMUNIDAD</section>
-    <div class="grid mb-section">
-
-      <!-- Subs -->
-      <div class="card card--subs">
-        <div class="card__glow"></div>
-        <div class="card__top">
-          <span class="card__badge">Exclusivo</span>
-          <span class="card__status online">● ACTIVO</span>
-        </div>
-        <h2 class="card__title">Subs</h2>
-        <p class="card__desc">Acceso exclusivo para suscriptores — ventajas, canales privados y contenido especial.</p>
-        <div class="card__footer">
-          <span class="card__link card__link--subs">Ver ventajas →</span>
-        </div>
+      <div class="topbar__right">
+        <span class="sys-label" id="clock">--:--:-- UTC</span>
+        <span class="sys-sep">|</span>
+        <span class="sys-label" id="datestamp">-- --- ----</span>
       </div>
+    </header>
 
-      <!-- Eventos -->
-      <div class="card card--eventos">
-        <div class="card__glow"></div>
-        <div class="card__top">
-          <span class="card__badge">El Fundillo</span>
-          <span class="card__status online">● ACTIVO</span>
+    <!-- ── BODY LAYOUT ── -->
+    <div class="layout">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar sidebar--left">
+        <div class="sidebar__section">
+          <p class="sidebar__heading">SECCIONES</p>
+          <nav class="sidenav">
+            <a href="#acceso" class="sidenav__item sidenav__item--active">Acceso Rápido</a>
+            <a href="#comunidad" class="sidenav__item">Comunidad</a>
+            <a href="#" class="sidenav__item sidenav__item--disabled">Sorteos</a>
+            <a href="#" class="sidenav__item sidenav__item--disabled">Galería</a>
+            <a href="#" class="sidenav__item sidenav__item--disabled">Staff</a>
+          </nav>
         </div>
-        <h2 class="card__title">Eventos</h2>
-        <p class="card__desc">Torneos, quedadas y actividades organizadas por la comunidad del Fundillo.</p>
-        <div class="card__footer">
-          <span class="card__link card__link--eventos">Ver eventos →</span>
+        <div class="sidebar__divider"></div>
+        <div class="sidebar__section">
+          <p class="sidebar__heading">ACTIVIDAD RECIENTE</p>
+          <ul class="activity">
+            <li class="activity__item">
+              <span class="activity__dot activity__dot--green"></span>
+              <span class="activity__text">La Colmena online</span>
+            </li>
+            <li class="activity__item">
+              <span class="activity__dot activity__dot--blue"></span>
+              <span class="activity__text">Discord activo</span>
+            </li>
+            <li class="activity__item">
+              <span class="activity__dot activity__dot--muted"></span>
+              <span class="activity__text">Sorteos próximamente</span>
+            </li>
+          </ul>
         </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+
+        <!-- Logo watermark -->
+        <div class="watermark">
+          <img src="logo.png" alt="" aria-hidden="true" />
+        </div>
+
+        <!-- ACCESO RÁPIDO -->
+        <section id="acceso" class="content-section">
+          <div class="section-header">
+            <span class="section-label">ACCESO RÁPIDO</span>
+            <div class="section-line"></div>
+          </div>
+          <div class="grid grid--3">
+
+            <a href="https://la-colmena.netlify.app" target="_blank" rel="noopener" class="card card--colmena">
+              <div class="card__glow"></div>
+              <div class="card__header">
+                <span class="card__badge">Star Citizen</span>
+                <span class="status status--online">● EN LÍNEA</span>
+              </div>
+              <h2 class="card__title">La Colmena</h2>
+              <p class="card__desc">Dashboard del clan — miembros, misiones, economía y flota.</p>
+              <div class="card__footer">
+                <span class="card__link">Acceder →</span>
+              </div>
+            </a>
+
+            <a href="https://discord.gg/cqVYQqGV" target="_blank" rel="noopener" class="card card--discord">
+              <div class="card__glow"></div>
+              <div class="card__header">
+                <span class="card__badge">Comunidad</span>
+                <span class="status status--online">● ACTIVO</span>
+              </div>
+              <div class="discord-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.11 18.1.128 18.11a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+              </div>
+              <h2 class="card__title">Discord</h2>
+              <p class="card__desc">Servidor oficial — habla con el resto de la comunidad.</p>
+              <div class="card__footer">
+                <span class="card__link">Unirse →</span>
+              </div>
+            </a>
+
+            <div class="card card--soon">
+              <div class="card__header">
+                <span class="card__badge">???</span>
+                <span class="status status--soon">◌ PRÓXIMAMENTE</span>
+              </div>
+              <h2 class="card__title card__title--muted">Nuevo juego</h2>
+              <p class="card__desc card__desc--muted">Más contenido en camino. Pronto disponible.</p>
+              <div class="card__footer">
+                <span class="card__link card__link--muted">En desarrollo</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- COMUNIDAD -->
+        <section id="comunidad" class="content-section">
+          <div class="section-header">
+            <span class="section-label">COMUNIDAD</span>
+            <div class="section-line"></div>
+          </div>
+          <div class="grid grid--3">
+
+            <div class="card card--subs">
+              <div class="card__glow"></div>
+              <div class="card__header">
+                <span class="card__badge">Exclusivo</span>
+                <span class="status status--online">● ACTIVO</span>
+              </div>
+              <h2 class="card__title">Subs</h2>
+              <p class="card__desc">Acceso exclusivo para suscriptores — ventajas, canales privados y contenido especial.</p>
+              <div class="card__footer">
+                <span class="card__link card__link--subs">Ver ventajas →</span>
+              </div>
+            </div>
+
+            <div class="card card--eventos">
+              <div class="card__glow"></div>
+              <div class="card__header">
+                <span class="card__badge">El Fundillo</span>
+                <span class="status status--online">● ACTIVO</span>
+              </div>
+              <h2 class="card__title">Eventos</h2>
+              <p class="card__desc">Torneos, quedadas y actividades organizadas por la comunidad.</p>
+              <div class="card__footer">
+                <span class="card__link card__link--eventos">Ver eventos →</span>
+              </div>
+            </div>
+
+            <div class="card card--locked">
+              <div class="card__lock">🔒</div>
+              <div class="card__header">
+                <span class="card__badge">Sorteos</span>
+                <span class="status status--soon">◌ NO DISPONIBLE</span>
+              </div>
+              <h2 class="card__title card__title--muted">Sorteos</h2>
+              <p class="card__desc card__desc--muted">Próximamente podrás participar en sorteos exclusivos para la comunidad.</p>
+              <div class="card__footer">
+                <span class="card__link card__link--muted">Próximamente</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="sidebar sidebar--right">
+        <div class="sidebar__section">
+          <p class="sidebar__heading">ESTADO</p>
+          <div class="status-block">
+            <span class="status-dot"></span>
+            <span class="status-label">OPERATIVO</span>
+          </div>
+        </div>
+        <div class="sidebar__divider"></div>
+        <div class="sidebar__section">
+          <p class="sidebar__heading">SISTEMAS</p>
+          <ul class="sys-list">
+            <li class="sys-list__item">
+              <span class="sys-list__name">La Colmena</span>
+              <span class="sys-list__val sys-list__val--ok">OK</span>
+            </li>
+            <li class="sys-list__item">
+              <span class="sys-list__name">Discord</span>
+              <span class="sys-list__val sys-list__val--ok">OK</span>
+            </li>
+            <li class="sys-list__item">
+              <span class="sys-list__name">Sorteos</span>
+              <span class="sys-list__val sys-list__val--off">OFF</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar__divider"></div>
+        <div class="sidebar__section">
+          <p class="sidebar__heading">PING</p>
+          <p class="ping-val" id="ping">-- ms</p>
+        </div>
+      </aside>
+
+    </div><!-- /layout -->
+
+    <!-- ── FOOTER ── -->
+    <footer class="bottombar">
+      <div class="bottombar__left">
+        <a href="https://discord.gg/cqVYQqGV" target="_blank" rel="noopener" class="social-btn" title="Discord">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.11 18.1.128 18.11a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </a>
       </div>
-
-      <!-- Sorteos — deshabilitado -->
-      <div class="card card--locked" title="Próximamente disponible">
-        <div class="card__lock">🔒</div>
-        <div class="card__top">
-          <span class="card__badge">Sorteos</span>
-          <span class="card__status soon">◌ NO DISPONIBLE</span>
-        </div>
-        <h2 class="card__title muted">Sorteos</h2>
-        <p class="card__desc muted">Próximamente podrás participar en sorteos exclusivos para la comunidad.</p>
-        <div class="card__footer">
-          <span class="card__link muted">Próximamente</span>
-        </div>
+      <div class="bottombar__center">
+        <span class="footer-text">ENTRAR PARA MÁS CONTENIDO</span>
       </div>
+      <div class="bottombar__right">
+        <span class="sys-label">© 2026 EL FUNDILLO</span>
+      </div>
+    </footer>
 
-    </div>
-
-  </main>
-
-  <footer>
-    <span class="mono">EL FUNDILLO</span> &mdash; Todos los derechos reservados &middot; <span class="mono">2026</span>
-  </footer>
   </div><!-- /site -->
 
   <script>
+    // ── Clock ──
+    function updateClock() {
+      const now = new Date();
+      const hh = String(now.getUTCHours()).padStart(2,'0');
+      const mm = String(now.getUTCMinutes()).padStart(2,'0');
+      const ss = String(now.getUTCSeconds()).padStart(2,'0');
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      document.getElementById('clock').textContent = `${hh}:${mm}:${ss} UTC`;
+      document.getElementById('datestamp').textContent =
+        `${now.getUTCDate()} ${months[now.getUTCMonth()]} ${now.getUTCFullYear()}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ── Ping simulation ──
+    function updatePing() {
+      const p = 18 + Math.floor(Math.random() * 14);
+      document.getElementById('ping').textContent = `${p} ms`;
+    }
+    setInterval(updatePing, 3000);
+    updatePing();
+
+    // ── Sidebar active nav ──
+    document.querySelectorAll('.sidenav__item:not(.sidenav__item--disabled)').forEach(item => {
+      item.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidenav__item').forEach(i => i.classList.remove('sidenav__item--active'));
+        this.classList.add('sidenav__item--active');
+      });
+    });
+
+    // ── Intro ──
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') enterSite();
     });
@@ -160,21 +288,13 @@
       const intro = document.getElementById('intro');
       const logo  = document.getElementById('intro-logo');
       const site  = document.getElementById('site');
-
-      // Phase 1: logo zooms into the user
       logo.classList.add('logo-zoom');
-
-      // Phase 2: after zoom, fade out intro and reveal site
       setTimeout(() => {
         intro.classList.add('intro-fadeout');
         site.classList.remove('site-hidden');
         site.classList.add('site-fadein');
       }, 700);
-
-      // Phase 3: remove intro from DOM
-      setTimeout(() => {
-        intro.remove();
-      }, 1300);
+      setTimeout(() => intro.remove(), 1300);
     }
   </script>
 </body>
