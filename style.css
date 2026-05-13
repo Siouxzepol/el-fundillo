@@ -301,6 +301,50 @@ a.card:hover .card__link:not(.muted)::after {
   content: '';
 }
 
+/* ── Section spacing ── */
+.mb-section {
+  margin-bottom: 56px;
+}
+
+/* ── Subs card ── */
+:root {
+  --accent-subs: #f5c400;
+  --accent-eventos: #e05aff;
+}
+
+.card--subs:hover {
+  border-color: rgba(245, 196, 0, 0.3);
+}
+.card--subs:hover .card__glow {
+  opacity: 1;
+  box-shadow: inset 0 0 60px rgba(245, 196, 0, 0.06);
+}
+.card__link--subs { color: var(--accent-subs); }
+
+/* ── Eventos card ── */
+.card--eventos:hover {
+  border-color: rgba(224, 90, 255, 0.3);
+}
+.card--eventos:hover .card__glow {
+  opacity: 1;
+  box-shadow: inset 0 0 60px rgba(224, 90, 255, 0.07);
+}
+.card__link--eventos { color: var(--accent-eventos); }
+
+/* ── Locked card (Sorteos) ── */
+.card--locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  position: relative;
+}
+.card__lock {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
 /* ── Footer ── */
 footer {
   text-align: center;
