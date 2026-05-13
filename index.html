@@ -106,6 +106,10 @@
   </div><!-- /site -->
 
   <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') enterSite();
+    });
+
     function enterSite() {
       const intro = document.getElementById('intro');
       const logo  = document.getElementById('intro-logo');
