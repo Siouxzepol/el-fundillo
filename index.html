@@ -273,11 +273,15 @@
     loadVideoTitle();
 
     // ── Intro ──
+    let _entered = false;
+
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') enterSite();
+      if (e.key === 'Enter') { e.preventDefault(); enterSite(); }
     });
 
     function enterSite() {
+      if (_entered) return;
+      _entered = true;
       const intro = document.getElementById('intro');
       const logo  = document.getElementById('intro-logo');
       const site  = document.getElementById('site');
