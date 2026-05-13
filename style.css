@@ -41,6 +41,21 @@ html, body {
   z-index: 0;
 }
 
+/* Logo marca de agua */
+.bg-grid::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(320px, 55vw, 700px);
+  height: clamp(320px, 55vw, 700px);
+  background: url('logo.png') center / contain no-repeat;
+  filter: brightness(0) invert(1);
+  opacity: 0.03;
+  pointer-events: none;
+}
+
 .noise {
   position: fixed;
   inset: 0;
@@ -62,58 +77,73 @@ body {
 
 header {
   text-align: center;
-  padding: 72px 24px 40px;
+  padding: 90px 24px 56px;
+  position: relative;
+}
+
+header::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 32px auto 0;
 }
 
 .logo-wrap {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
-}
-
-.logo-icon {
-  font-size: 28px;
-  opacity: 0.7;
+  margin-bottom: 14px;
 }
 
 .logo-text {
   font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: clamp(32px, 5vw, 52px);
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   color: var(--text);
 }
 
 .tagline {
   color: var(--text-muted);
-  font-size: 14px;
-  letter-spacing: 0.06em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 main {
   flex: 1;
-  max-width: 960px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 32px 100px;
 }
 
 .section-label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  letter-spacing: 0.25em;
   color: var(--text-muted);
   text-transform: uppercase;
   margin-bottom: 20px;
   font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 
 /* ── Grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
 }
 
 /* ── Card ── */
