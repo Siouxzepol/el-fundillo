@@ -46,10 +46,10 @@
       <aside class="yt-panel">
         <p class="sidebar__heading">ÚLTIMO VÍDEO</p>
         <div class="yt-embed-wrap">
-          <iframe id="yt-iframe" src="" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=UUweN1tq6GAjklEiuL_lEuzA" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
         </div>
         <div class="yt-info">
-          <p class="yt-title" id="yt-title">Cargando...</p>
+          <p class="yt-title" id="yt-title">Cargando título...</p>
           <a class="yt-channel-link" href="https://www.youtube.com/@soyNorris/videos" target="_blank" rel="noopener">Ver canal →</a>
         </div>
       </aside>
@@ -219,25 +219,22 @@
       });
     });
 
-    // ── YouTube latest video ──
-    async function loadLatestVideo() {
-      const CHANNEL_ID = 'UCweN1tq6GAjklEiuL_lEuzA';
+    // ── YouTube latest video title ──
+    async function loadVideoTitle() {
       try {
-        const feedUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
-        const rss = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
-        const res = await fetch(rss);
+        const feedUrl = encodeURIComponent('https://www.youtube.com/feeds/videos.xml?channel_id=UCweN1tq6GAjklEiuL_lEuzA');
+        const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`);
         const data = await res.json();
         if (data.items && data.items.length > 0) {
-          const video = data.items[0];
-          const videoId = video.link.split('v=')[1];
-          document.getElementById('yt-iframe').src = `https://www.youtube.com/embed/${videoId}`;
-          document.getElementById('yt-title').textContent = video.title;
+          document.getElementById('yt-title').textContent = data.items[0].title;
+        } else {
+          document.getElementById('yt-title').textContent = '';
         }
       } catch(e) {
-        document.getElementById('yt-title').textContent = 'No se pudo cargar el vídeo';
+        document.getElementById('yt-title').textContent = '';
       }
     }
-    loadLatestVideo();
+    loadVideoTitle();
 
     // ── Intro ──
     document.addEventListener('keydown', function(e) {
