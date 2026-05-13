@@ -121,7 +121,7 @@ html, body {
 .layout {
   flex: 1;
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 360px 1fr 260px;
   overflow: hidden;
 }
 
@@ -136,6 +136,84 @@ html, body {
   gap: 16px;
   overflow-y: auto;
 }
+
+/* ══ GAMES PANEL ══ */
+.games-panel {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  border-left: 1px solid var(--border);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.game-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: border-color var(--t), background var(--t), transform var(--t);
+}
+
+a.game-item:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateX(-3px);
+}
+
+.game-item--soon { opacity: 0.5; cursor: default; }
+
+.game-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.game-item__badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.game-item__status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.game-item__name {
+  font-family: 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+.game-item__name--muted { color: rgba(255,255,255,0.45); }
+
+.game-item__link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.7);
+}
+.game-item__link--muted { color: rgba(255,255,255,0.3); font-weight: 400; }
 
 .sidebar__heading {
   font-family: 'Share Tech Mono', monospace;
@@ -472,6 +550,10 @@ a.card:hover {
 }
 
 /* ══ RESPONSIVE ══ */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 320px 1fr; }
+  .games-panel { display: none; }
+}
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
   .yt-panel { border-right: none; border-bottom: 1px solid var(--border); }
